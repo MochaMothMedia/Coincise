@@ -2,8 +2,8 @@
 
 namespace MochaMoth.Coincise.Core.Database
 {
-	public interface IDatabaseFacade
+	public interface IInitializeDatabase
 	{
-		void InitializeDatabase(IConfigurationSection configuration);
+		void Initialize(IConfigurationSection configuration);
 	}
 }
