@@ -33,10 +33,15 @@ namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
 		[HttpPost]
 		public async Task<ActionResult<string>> Create(Currency currency)
 		{
-			return await _database.CreateCurrency(currency);
+			string id = await _database.CreateCurrency(currency);
+
+			if (id == null)
+				throw new Exception("Unable to create currency!");
+
+			return CreatedAtAction(nameof(Get), new { id }, currency);
 		}
 
-		[HttpPatch]
+		[HttpPut]
 		public async Task<ActionResult<Currency?>> Update(string id, Currency currency)
 		{
 			Currency? oldCurrency = await _database.UpdateCurrency(id, currency);
@@ -44,7 +49,7 @@ namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
 			if (oldCurrency == null)
 				throw new NotFoundException();
 
-			return oldCurrency;
+			return CreatedAtAction(nameof(Get), new { id }, currency);
 		}
 
 		[HttpDelete]

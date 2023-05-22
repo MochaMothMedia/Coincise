@@ -40,7 +40,7 @@ namespace MochaMoth.Coincise.MongoDatabase.Operations
 			MongoDB_Currency mongoCurrency = currency;
 
 			_logger.LogInfo($"Creating Currency with Type '{mongoCurrency.Type}' and Amount '{mongoCurrency.Amount}'.");
-			await _collection.InsertOneAsync(currency);
+			await _collection.InsertOneAsync(mongoCurrency);
 			_logger.LogInfo($"Currency created with ID '{mongoCurrency.Id}'.");
 			return mongoCurrency.Id!;
 		}
