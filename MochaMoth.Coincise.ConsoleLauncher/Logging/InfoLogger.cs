@@ -7,7 +7,7 @@ namespace MochaMoth.Coincise.ConsoleLauncher.Logging
 		public void Log(string message)
 		{
 			Console.ForegroundColor = ConsoleColor.Blue;
-			Console.WriteLine(message);
+			Console.WriteLine($"[INFO ] - {message}");
 			Console.ResetColor();
 		}
 	}

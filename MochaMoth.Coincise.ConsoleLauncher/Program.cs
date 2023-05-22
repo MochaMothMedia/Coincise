@@ -19,25 +19,24 @@ namespace MochaMoth.Coincise.ConsoleLauncher
 
 			IHostBuilder hostBuilder = Host.CreateDefaultBuilder(args);
 
-			_ = hostBuilder.ConfigureServices(AddServices);
+			_ = hostBuilder.ConfigureServices((IServiceCollection services) => AddServices(services, configuration));
 
 			IHost host = hostBuilder.Build();
 
 			Task appTask = host.RunAsync();
 
-			IDatabaseFacade database = host.Services.GetService<IDatabaseFacade>()!;
+			IDatabase database = host.Services.GetService<IDatabase>()!;
 			IAPIFacade webAPI = host.Services.GetService<IAPIFacade>()!;
 
-			database.InitializeDatabase(configuration.GetRequiredSection("Databases").GetRequiredSection("MongoDB"));
 			webAPI.RunAPI();
 
 			appTask.Wait();
 		}
 
-		private static void AddServices(IServiceCollection services)
+		private static void AddServices(IServiceCollection services, IConfigurationSection configuration)
 		{
 			AddLogging(services);
-			AddDatabase(services);
+			AddDatabase(services, configuration);
 			AddWebAPI(services);
 		}
 
@@ -47,14 +46,14 @@ namespace MochaMoth.Coincise.ConsoleLauncher
 			_ = services.AddScoped<ILogWarning, WarningLogger>();
 			_ = services.AddScoped<ILogError, ErrorLogger>();
 
-			_ = services.AddScoped<ILogFacade, LogFacade>();
+			_ = services.AddScoped<ILog, Logger>();
 		}
 
-		private static void AddDatabase(IServiceCollection services)
+		private static void AddDatabase(IServiceCollection services, IConfigurationSection configuration)
 		{
-			_ = services.AddScoped<IInitializeDatabase, MongoDatabaseInitializer>();
+			MongoDatabaseInitializer.Initialize(configuration.GetRequiredSection("Databases").GetRequiredSection("MongoDB"), services);
 
-			_ = services.AddScoped<IDatabaseFacade, DatabaseFacade>();
+			_ = services.AddScoped<IDatabase, Database>();
 		}
 
 		private static void AddWebAPI(IServiceCollection services)

@@ -7,7 +7,7 @@ namespace MochaMoth.Coincise.ConsoleLauncher.Logging
 		public void Log(string message, Exception? exception = null)
 		{
 			Console.ForegroundColor = ConsoleColor.Red;
-			Console.WriteLine(message);
+			Console.WriteLine($"[ERROR] - {message}");
 			if (exception != null)
 				Console.WriteLine(exception.StackTrace);
 			Console.ResetColor();

@@ -1,6 +1,6 @@
 ﻿namespace MochaMoth.Coincise.Core.Logging
 {
-	public interface ILogFacade
+	public interface ILog
 	{
 		void LogInfo(string message);
 		void LogWarning(string message);

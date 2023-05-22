@@ -1,12 +1,12 @@
 ﻿namespace MochaMoth.Coincise.Core.Logging
 {
-	public class LogFacade : ILogFacade
+	public class Logger : ILog
 	{
 		private readonly ILogInfo _infoLogger;
 		private readonly ILogWarning _warningLogger;
 		private readonly ILogError _errorLogger;
 
-		public LogFacade(
+		public Logger(
 			ILogInfo infoLogger,
 			ILogWarning warningLogger,
 			ILogError errorLogger)

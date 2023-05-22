@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.MongoDat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.ConsoleLauncher", "MochaMoth.Coincise.ConsoleLauncher\MochaMoth.Coincise.ConsoleLauncher.csproj", "{BDF11778-0389-4A5E-B336-7111E7A65FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MochaMoth.Coincise.WebAPI", "MochaMoth.Coincise.WebAPI\MochaMoth.Coincise.WebAPI.csproj", "{C9106936-3B5C-4376-B408-97CE55F2EBD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.WebAPI", "MochaMoth.Coincise.WebAPI\MochaMoth.Coincise.WebAPI.csproj", "{C9106936-3B5C-4376-B408-97CE55F2EBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MochaMoth.Coincise.APIModel", "MochaMoth.Coincise.APIModel\MochaMoth.Coincise.APIModel.csproj", "{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.APIModel", "MochaMoth.Coincise.APIModel\MochaMoth.Coincise.APIModel.csproj", "{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MochaMoth.Coincise.SystemModel", "MochaMoth.Coincise.SystemModel\MochaMoth.Coincise.SystemModel.csproj", "{61EC6F5C-33DF-42DD-8372-C4C250824DEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61EC6F5C-33DF-42DD-8372-C4C250824DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61EC6F5C-33DF-42DD-8372-C4C250824DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61EC6F5C-33DF-42DD-8372-C4C250824DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61EC6F5C-33DF-42DD-8372-C4C250824DEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

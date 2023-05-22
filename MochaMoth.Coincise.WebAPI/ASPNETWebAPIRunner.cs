@@ -1,15 +1,21 @@
+using MochaMoth.Coincise.Core.Database;
 using MochaMoth.Coincise.Core.Logging;
 using MochaMoth.Coincise.Core.WebAPI;
+using MochaMoth.Coincise.WebAPI.Middleware;
+using Swashbuckle.AspNetCore.Swagger;
+using System.Text.Json.Serialization;
 
 namespace MochaMoth.Coincise.WebAPI
 {
 	public class ASPNETWebAPIRunner : IAPIRunner
 	{
-		private readonly ILogFacade _logger;
+		private readonly ILog _logger;
+		private readonly IDatabase _database;
 
-		public ASPNETWebAPIRunner(ILogFacade logger)
+		public ASPNETWebAPIRunner(ILog logger, IDatabase database)
 		{
 			_logger = logger;
+			_database = database;
 		}
 
 		public void Run()
@@ -18,22 +24,37 @@ namespace MochaMoth.Coincise.WebAPI
 
 			WebApplicationBuilder builder = WebApplication.CreateBuilder();
 
-			AddServices(builder);
+			AddServices(builder.Services);
 
 			WebApplication app = builder.Build();
 
 			ConfigurePipeline(app);
+			ConfigureMiddleware(app);
 
 			app.Run();
 
 			_logger.LogInfo("ASPNET Web Application closed.");
 		}
 
-		private void AddServices(WebApplicationBuilder builder)
+		private void AddServices(IServiceCollection services)
 		{
-			_ = builder.Services.AddControllers();
-			_ = builder.Services.AddEndpointsApiExplorer();
-			_ = builder.Services.AddSwaggerGen();
+			_ = services.AddSingleton((serviceProvider) => _logger);
+			_ = services.AddScoped((serviceProvider) => _database);
+			_ = services
+				.AddControllers()
+				.AddJsonOptions(x =>
+				{
+					x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+					x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+				});
+			_ = services.AddCors();
+			_ = services.AddEndpointsApiExplorer();
+			_ = services.AddSwaggerGen();
+		}
+
+		private void ConfigureMiddleware(WebApplication app)
+		{
+			_ = app.UseMiddleware<ErrorHandlerMiddleware>();
 		}
 
 		private void ConfigurePipeline(WebApplication app)
@@ -44,6 +65,12 @@ namespace MochaMoth.Coincise.WebAPI
 				_ = app.UseSwagger();
 				_ = app.UseSwaggerUI();
 			}
+
+			_ = app.UseCors(cors => cors
+				.AllowAnyOrigin()
+				.AllowAnyMethod()
+				.AllowAnyHeader()
+			);
 
 			_ = app.UseHttpsRedirection();
 			_ = app.UseAuthorization();
