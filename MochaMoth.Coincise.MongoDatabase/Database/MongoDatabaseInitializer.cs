@@ -27,8 +27,10 @@ namespace MochaMoth.Coincise.MongoDatabase.Database
 			IMongoDatabase database = client.GetDatabase(dbConfiguration.DatabaseName);
 
 			IMongoCollection<MongoDB_Currency> currencyCollection = database.GetCollection<MongoDB_Currency>(dbConfiguration.Collections.Currency);
+			IMongoCollection<MongoDB_Exchange> exchangeCollection = database.GetCollection<MongoDB_Exchange>(dbConfiguration.Collections.Exchange);
 
 			_ = services.AddScoped((services) => currencyCollection);
+			_ = services.AddScoped((services) => exchangeCollection);
 
 			AddOperations(services);
 		}
@@ -36,6 +38,7 @@ namespace MochaMoth.Coincise.MongoDatabase.Database
 		public static void AddOperations(IServiceCollection services)
 		{
 			_ = services.AddScoped<ICurrencyOperations, CurrencyOperations>();
+			_ = services.AddScoped<IExchangeOperations, ExchangeOperations>();
 		}
 	}
 }

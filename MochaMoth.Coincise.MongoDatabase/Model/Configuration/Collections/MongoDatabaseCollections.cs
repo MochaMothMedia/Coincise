@@ -3,5 +3,6 @@
 	public class MongoDatabaseCollections
 	{
 		public string Currency { get; set; } = null!;
+		public string Exchange { get; set; } = null!;
 	}
 }

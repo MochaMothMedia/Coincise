@@ -76,7 +76,7 @@ namespace MochaMoth.Coincise.MongoDatabase.Operations
 				return null;
 			}
 
-			_logger.LogInfo($"Deleted '{id}'.");
+			_logger.LogInfo($"Deleted Currency '{id}'.");
 			return deletedCurrency;
 		}
 	}
