@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.WebAPI",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.APIModel", "MochaMoth.Coincise.APIModel\MochaMoth.Coincise.APIModel.csproj", "{62DFA5BD-8AAA-41E2-AF0C-352D2738EBBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MochaMoth.Coincise.SystemModel", "MochaMoth.Coincise.SystemModel\MochaMoth.Coincise.SystemModel.csproj", "{61EC6F5C-33DF-42DD-8372-C4C250824DEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MochaMoth.Coincise.SystemModel", "MochaMoth.Coincise.SystemModel\MochaMoth.Coincise.SystemModel.csproj", "{61EC6F5C-33DF-42DD-8372-C4C250824DEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

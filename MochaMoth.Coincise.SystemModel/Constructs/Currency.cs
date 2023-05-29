@@ -5,9 +5,4 @@
 		public CurrencyType Type { get; set; }
 		public double Amount { get; set; }
 	}
-
-	public enum CurrencyType
-	{
-		USD
-	}
 }
