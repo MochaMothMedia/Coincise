@@ -7,7 +7,7 @@ namespace MochaMoth.Coincise.ConsoleLauncher.Logging
 		public void Log(string message)
 		{
 			Console.ForegroundColor = ConsoleColor.Yellow;
-			Console.WriteLine($"[WARN ] - {message}");
+			Console.WriteLine($"({DateTime.UtcNow.TimeOfDay}) [WARN ] - {message}");
 			Console.ResetColor();
 		}
 	}

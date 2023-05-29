@@ -1,7 +1,7 @@
 ﻿using MochaMoth.Coincise.Core.Database.Operations;
 using MochaMoth.Coincise.Core.Logging;
 using MochaMoth.Coincise.MongoDatabase.Model;
-using MochaMoth.Coincise.SystemModel;
+using MochaMoth.Coincise.SystemModel.Constructs;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

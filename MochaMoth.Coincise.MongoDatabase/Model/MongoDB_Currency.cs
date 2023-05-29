@@ -1,4 +1,4 @@
-﻿using MochaMoth.Coincise.SystemModel;
+﻿using MochaMoth.Coincise.SystemModel.Constructs;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
