@@ -31,7 +31,7 @@ namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
 		}
 
 		[HttpPost]
-		public async Task<ActionResult<string>> Post(Exchange exchange)
+		public async Task<ActionResult<string>> Create(Exchange exchange)
 		{
 			string id = await _database.CreateExchange(exchange);
 
@@ -49,7 +49,7 @@ namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
 			if (oldExchange == null)
 				throw new NotFoundException();
 
-			return CreatedAtAction(nameof(Get), new { id }, exchange);
+			return CreatedAtAction(nameof(Get), new { id }, oldExchange);
 		}
 
 		[HttpDelete]

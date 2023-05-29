@@ -1,4 +1,4 @@
-﻿using MochaMoth.Coincise.SystemModel;
+﻿using MochaMoth.Coincise.SystemModel.Constructs;
 
 namespace MochaMoth.Coincise.Core.Database.Operations
 {

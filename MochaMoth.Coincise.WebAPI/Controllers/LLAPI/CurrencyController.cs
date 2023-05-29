@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MochaMoth.Coincise.Core.Database;
 using MochaMoth.Coincise.Core.Logging;
-using MochaMoth.Coincise.SystemModel;
+using MochaMoth.Coincise.SystemModel.Constructs;
 using MochaMoth.Coincise.WebAPI.Exceptions;
 
 namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
@@ -49,7 +49,7 @@ namespace MochaMoth.Coincise.WebAPI.Controllers.LLAPI
 			if (oldCurrency == null)
 				throw new NotFoundException();
 
-			return CreatedAtAction(nameof(Get), new { id }, currency);
+			return CreatedAtAction(nameof(Get), new { id }, oldCurrency);
 		}
 
 		[HttpDelete]

@@ -1,4 +1,4 @@
-﻿namespace MochaMoth.Coincise.SystemModel
+﻿namespace MochaMoth.Coincise.SystemModel.Constructs
 {
 	public enum CurrencyType
 	{
